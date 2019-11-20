@@ -1,0 +1,16 @@
+spring:
+  swagger:
+    enabled: true
+  dubbo:
+    application:
+      name: consumer
+      base-package: cn.conque.consumer.system.controller  # dubbo服务调用者所在的包
+    registry:
+      address: 127.0.0.1                   # zookeeper注册中心的地址
+      port: 2181                           # zookeeper注册中心的端口
+    consumer:
+      timeout: 1000
+      check: true                          # 服务启动时检查被调用服务是否可用
+      retries: 2                           # 服务调用重试次数
+server:
+  port: 8070
