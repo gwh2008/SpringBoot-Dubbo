@@ -14,5 +14,6 @@ public class User implements Serializable {
     String name;
     Integer age;
     Date ctm;
+    String pwd;
 
 }

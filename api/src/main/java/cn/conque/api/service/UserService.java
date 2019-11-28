@@ -11,4 +11,6 @@ public interface UserService {
      * @return User
      */
     User getUserById(Long id);
+
+    User login(String name,String pwd);
 }

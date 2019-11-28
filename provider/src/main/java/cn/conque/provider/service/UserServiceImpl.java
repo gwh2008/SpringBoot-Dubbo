@@ -20,4 +20,9 @@ public class UserServiceImpl implements UserService {
         System.err.println(user);
         return user;
     }
+
+    @Override
+    public User login(String userName, String passWord) {
+        return userDao.login(userName,passWord);
+    }
 }

@@ -1,0 +1,5 @@
+cn\conque\provider\ProviderApplication.class
+cn\conque\provider\dao\UserDao.class
+cn\conque\provider\config\DruidDbConfig.class
+cn\conque\provider\config\DruidConfiguration.class
+cn\conque\provider\service\UserServiceImpl.class

@@ -14,4 +14,7 @@ public interface UserDao {
      * @return User
      */
     User getUserById(@Param("id") Long id);
+
+    //登录
+    User login(@Param("name")String name, @Param("pwd")String pwd);
 }

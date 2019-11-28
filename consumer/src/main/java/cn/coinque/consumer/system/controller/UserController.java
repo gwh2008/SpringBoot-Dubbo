@@ -1,14 +1,18 @@
 package cn.coinque.consumer.system.controller;
 
 import cn.coinque.consumer.system.exception.JsonResult;
+import cn.coinque.consumer.system.utils.Audience;
+import cn.coinque.consumer.system.utils.JwtHelper;
 import cn.conque.api.entity.User;
 import cn.conque.api.service.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
@@ -22,6 +26,8 @@ public class UserController {
 
     @Reference
     UserService userServiceImpl;
+    @Autowired
+    private Audience audience;
 
 
     @GetMapping("/getUser/{id}")
@@ -55,6 +61,26 @@ public class UserController {
         String info ="你好";
         int a = 1/0;
         return info;
+    }
+
+    @PostMapping("login")
+    @ApiOperation(value = "登录接口")
+    public JsonResult login(@RequestParam String name, @RequestParam String pwd, HttpServletRequest request) {
+        JsonResult jsonResult = new JsonResult();
+        User user=userServiceImpl.login(name,pwd);
+        if (user == null) {
+            return jsonResult.fail();
+        }
+        String jwtToken = JwtHelper.createJWT(user.getName(),
+                user.getId().toString(),
+                audience.getClientId(),
+                audience.getName(),
+                audience.getExpiresSecond()*1000,
+                audience.getBase64Secret());
+        String token = "bearer;" + jwtToken;
+        jsonResult.putDataValue("token", token);
+        jsonResult.success();
+        return jsonResult;
     }
 
 }
