@@ -1,0 +1,54 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /
+  address: 0.0.0.0
+spring:
+    datasource:
+        driver-class-name:  com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/tcc_account?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+        username: root
+        password: root
+org:
+    dromara:
+         hmily :
+            serializer : kryo
+            recoverDelayTime : 128
+            retryMax : 30
+            scheduledDelay : 128
+            scheduledThreadMax :  10
+            repositorySupport : db
+            started: false
+            hmilyDbConfig :
+                 driverClassName  : com.mysql.cj.jdbc.Driver
+                 url :  jdbc:mysql://127.0.0.1:3306/tcc?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+                 username : root
+                 password : root
+
+mybatis:
+  type-aliases-package: com.hmily.tcc.demo.dubbo.account.api.entity
+  config-location: classpath:mybatis/mybatis-config.xml
+
+logging:
+    level:
+        root: error
+        org.springframework.web: info
+        org.apache.ibatis: debug
+        org.dromara.hmily.bonuspoint: debug
+        org.dromara.hmily.lottery: debug
+        org.dromara.hmily: debug
+    path: "./logs"
+
+  # dubbo配置
+  dubbo:
+    application:
+      name: order
+    base-package: org.dromara.hmily.demo.dubbo.account.service  # dubbo服务发布者所在的包
+    registry:
+      address: 127.0.0.1                   # zookeeper注册中心的地址
+      port: 2181                           # zookeeper注册中心的端口
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0                           # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试
