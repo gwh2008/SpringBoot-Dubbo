@@ -1,6 +1,12 @@
 # SpringBoot-Dubbo
 基于：https://github.com/battcn/swagger-spring-boot
+
       https://gitee.com/reger/spring-boot-starter-dubbo
+      分布式事务：
+      https://github.com/Dromara/Raincat
+      
+      https://dromara.org/website/zh-cn/docs/hmily/user-dubbo.html
+      
 #### 项目介绍
 这是一个面向学习型的SpringBoot Dubbo基础项目!
 #### 软件架构
@@ -29,8 +35,14 @@
  java -jar consumer-0.0.1-SNAPSHOT.jar --spring.dubbo.registry.address=127.0.0.1  --spring.dubbo.registry.port=2181 --server.port=8070
 
   http://127.0.0.1:8070/user/getUser/1
+  
   http://127.0.0.1:8070/swagger-ui.html
+  
   http://127.0.0.1:8080/dubbo-admin-2.6.0   
 
 全局异常测试：
 http://127.0.0.1:8070/user/exce
+
+附截图：
+
+![Image text](https://github.com/gaowenhui/SpringDataJPA/blob/master/src/screenshots/20180313153024.png)
