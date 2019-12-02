@@ -27,6 +27,9 @@
 api/target/*
 consumer/target/*
 provider/target/*
+hmily-demo-dubbo-order/target/*
+hmily-demo-dubbo-account-api/target/*
+hmily-demo-dubbo-account/target/*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
