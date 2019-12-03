@@ -16,6 +16,7 @@
         <module>hmily-demo-dubbo-order</module>
         <module>hmily-demo-dubbo-account</module>
         <module>hmily-demo-dubbo-account-api</module>
+        <module>rabbitmq</module>
     </modules>
     <dependencies>
         <dependency>
