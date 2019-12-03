@@ -1,11 +1,17 @@
 # SpringBoot-Dubbo
-基于：https://github.com/battcn/swagger-spring-boot
+基于：
+      SpringBoot2集成Swagger：
+      https://github.com/battcn/swagger-spring-boot
 
+      SpringBoot2集成Dubbo：
       https://gitee.com/reger/spring-boot-starter-dubbo
-      分布式事务：
-      https://github.com/Dromara/Raincat
       
+      分布式事务（异步分布式事务TCC框架hmily）：
+      https://github.com/Dromara/Raincat
       https://dromara.org/website/zh-cn/docs/hmily/user-dubbo.html
+      
+      redisson实现redis分布式锁:
+      https://github.com/TaXueWWL/redis-distributed-lock
       
 #### 项目介绍
 这是一个脚手架SpringBoot Dubbo基础项目!
@@ -20,9 +26,10 @@
 * MySql
 * Druid
 * Lombok
-* Swagger
+* Swagger2
 * Redis分布式锁
 * 异步分布式事务TCC框架hmily
+* RabbitMQ
 
 #### 安装教程
 1. 见文档
