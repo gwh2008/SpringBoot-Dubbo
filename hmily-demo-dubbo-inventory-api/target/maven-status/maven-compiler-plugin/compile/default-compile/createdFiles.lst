@@ -1,0 +1,3 @@
+org\dromara\hmily\demo\dubbo\inventory\api\service\InventoryService.class
+org\dromara\hmily\demo\dubbo\inventory\api\entity\InventoryDO.class
+org\dromara\hmily\demo\dubbo\inventory\api\dto\InventoryDTO.class

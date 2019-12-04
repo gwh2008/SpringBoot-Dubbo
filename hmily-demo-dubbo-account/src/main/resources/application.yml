@@ -2,10 +2,10 @@ server:
   port: 8084
   servlet:
     context-path: /
-  address: 0.0.0.0
+  address: 127.0.0.1
 spring:
     datasource:
-        driver-class-name:  com.mysql.cj.jdbc.Driver
+        driver-class-name:  com.mysql.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/tcc_account?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
         username: root
         password: root
@@ -20,10 +20,39 @@ org:
             repositorySupport : db
             started: false
             hmilyDbConfig :
-                 driverClassName  : com.mysql.cj.jdbc.Driver
+                 driverClassName  : com.mysql.jdbc.Driver
                  url :  jdbc:mysql://127.0.0.1:3306/tcc?useSSL=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
                  username : root
                  password : root
+
+
+
+#            repository-support: file
+#            hmily-file-config:
+#                     path      : /account
+#                     prefix    :  account
+#
+
+#           repository-support:  mongodb
+#           hmily-mongo-config:
+#               mongoDbUrl  : 192.168.1.68:27017
+#               mongoDbName  :  happylife
+#               mongoUserName  : xiaoyu
+#               mongoUserPwd   : 123456
+
+
+#           repository-support: zookeeper
+#           hmily-zookeeper-config:
+#                    host      : 92.168.1.73:2181
+#                    sessionTimeOut      :  100000
+#                    rootPath  : /tcc
+
+#            repository-support: redis
+#            hmily-redis-config:
+#                 masterName: mymaster
+#                 sentinel : true
+#                 sentinelUrl : 192.168.1.91:26379;192.168.1.92:26379;192.168.1.93:26379
+#                 password  : foobaredbbexONE123
 
 mybatis:
   type-aliases-package: com.hmily.tcc.demo.dubbo.account.api.entity
@@ -39,16 +68,3 @@ logging:
         org.dromara.hmily: debug
     path: "./logs"
 
-  # dubbo配置
-  dubbo:
-    application:
-      name: order
-    base-package: org.dromara.hmily.demo.dubbo.account.service  # dubbo服务发布者所在的包
-    registry:
-      address: 127.0.0.1                   # zookeeper注册中心的地址
-      port: 2181                           # zookeeper注册中心的端口
-    protocol:
-      name: dubbo
-      serialization: hessian2
-    provider:
-      retries: 0                           # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试

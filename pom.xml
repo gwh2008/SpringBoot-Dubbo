@@ -16,6 +16,8 @@
         <module>hmily-demo-dubbo-order</module>
         <module>hmily-demo-dubbo-account</module>
         <module>hmily-demo-dubbo-account-api</module>
+        <module>hmily-demo-dubbo-inventory</module>
+        <module>hmily-demo-dubbo-inventory-api</module>
         <module>rabbitmq</module>
         <module>redis-distributed-lock-starter</module>
         <module>redis-distributed-lock-starter-demo</module>

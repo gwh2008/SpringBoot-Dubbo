@@ -1,7 +1,23 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package org.dromara.hmily.demo.dubbo.order.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.dromara.hmily.common.utils.IdWorkerUtils;
 import org.dromara.hmily.demo.dubbo.order.entity.Order;
 import org.dromara.hmily.demo.dubbo.order.enums.OrderStatusEnum;
 import org.dromara.hmily.demo.dubbo.order.mapper.OrderMapper;
@@ -10,15 +26,18 @@ import org.dromara.hmily.demo.dubbo.order.service.PaymentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 
 /**
- * 订单实现
+ * @author xiaoyu
  */
-@Service
+@Service("orderService")
+@SuppressWarnings("all")
 public class OrderServiceImpl implements OrderService {
 
     /**
@@ -111,6 +130,7 @@ public class OrderServiceImpl implements OrderService {
      * @return string
      */
     @Override
+    @Transactional
     public String mockInventoryWithTryTimeout(Integer count, BigDecimal amount) {
         final Order order = buildOrder(count, amount);
         final int rows = orderMapper.save(order);
@@ -128,7 +148,6 @@ public class OrderServiceImpl implements OrderService {
      * @return string
      */
     @Override
-    @Transactional
     public String mockInventoryWithConfirmException(Integer count, BigDecimal amount) {
         final Order order = buildOrder(count, amount);
         final int rows = orderMapper.save(order);
@@ -163,6 +182,7 @@ public class OrderServiceImpl implements OrderService {
     private Order buildOrder(Integer count, BigDecimal amount) {
         Order order = new Order();
         order.setCreateTime(new Date());
+        order.setNumber(IdWorkerUtils.getInstance().buildPartNumber());
         //demo中的表里只有商品id为1的数据
         order.setProductId("1");
         order.setStatus(OrderStatusEnum.NOT_PAY.getCode());
@@ -176,6 +196,7 @@ public class OrderServiceImpl implements OrderService {
     private Order buildTestOrder(Integer count, BigDecimal amount) {
         Order order = new Order();
         order.setCreateTime(new Date());
+        order.setNumber(IdWorkerUtils.getInstance().buildPartNumber());
         //demo中的表里只有商品id为1的数据
         order.setProductId("1");
         order.setStatus(OrderStatusEnum.PAY_SUCCESS.getCode());

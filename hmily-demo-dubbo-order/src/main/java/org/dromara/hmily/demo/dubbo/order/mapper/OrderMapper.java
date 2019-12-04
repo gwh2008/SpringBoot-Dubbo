@@ -25,7 +25,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 /**
- * 订单接口
+ * @author xiaoyu
  */
 public interface OrderMapper {
 

@@ -5,7 +5,7 @@ import org.dromara.hmily.common.exception.HmilyException;
 import org.dromara.hmily.common.serializer.ObjectSerializer;
 
 /**
- * 序列化
+ * @author xiaoyu(Myth)
  */
 @HmilySPI("custom")
 public class CustomSerializer implements ObjectSerializer {

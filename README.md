@@ -48,6 +48,7 @@
   http://127.0.0.1:8070/user/getUser/1
   
   http://127.0.0.1:8070/swagger-ui.html
+  http://localhost:8087/swagger-ui.html
   
   http://127.0.0.1:8080/dubbo-admin-2.6.0   
 

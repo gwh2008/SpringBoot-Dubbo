@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 订单实体
+ * @author xiaoyu
  */
 @Data
 public class Order implements Serializable {
