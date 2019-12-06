@@ -14,6 +14,7 @@
         <module>api-gateway-sentinel</module>
         <module>provider</module>
         <module>consumer</module>
+        <module>elasticsearch-rest-high-level-client</module>
         <module>hmily-demo-dubbo-order</module>
         <module>hmily-demo-dubbo-account</module>
         <module>hmily-demo-dubbo-account-api</module>
