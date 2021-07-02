@@ -22,7 +22,7 @@
     <hutool.version>5.0.0</hutool.version>
     <guava.version>28.1-jre</guava.version>
     <user.agent.version>1.20</user.agent.version>
-    <elasticsearch.version>7.3.0</elasticsearch.version>
+    <elasticsearch.version>7.11.2</elasticsearch.version>
     <lombok.version>1.18.10</lombok.version>
     <hibernate.validator.version>6.0.13.Final</hibernate.validator.version>
   </properties>
